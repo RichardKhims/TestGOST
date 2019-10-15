@@ -1,5 +1,6 @@
 import utils.FactorialUtils;
 import utils.NumberStringifierUtils;
+import utils.TextUtils;
 
 import java.util.Arrays;
 
@@ -8,5 +9,10 @@ public class Application {
         System.out.println("task 1: " + NumberStringifierUtils.stringifyRange(1,100, Arrays.asList(2,7)));
 
         System.out.println("task 2: " + FactorialUtils.calcF(6,2));
+
+        String s = "На вход программе подается литературный текст. Программа должна вывести список слов, встречающихся" +
+                " в тексте, в котором для каждого слова указывается количество вхождений этого слова в текст, а слова " +
+                "выводятся в порядке убывания частоты вхождения.";
+        System.out.println("task 3: " + TextUtils.getValuesByInnerCount(s, "[^A-Za-zА-Яа-я]+"));
     }
 }
