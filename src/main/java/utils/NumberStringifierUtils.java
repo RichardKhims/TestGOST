@@ -9,6 +9,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Класс для строкового форматирования чисел
+ * @author Хисметов Радик
+ */
 public class NumberStringifierUtils {
     private static final Map<Integer, String> digitWordMap;
     static {
@@ -20,10 +24,18 @@ public class NumberStringifierUtils {
         digitWordMap.put(5, "Five");
         digitWordMap.put(6, "Six");
         digitWordMap.put(7, "Seven");
-        digitWordMap.put(8, "Eigght");
+        digitWordMap.put(8, "Eight");
         digitWordMap.put(9, "Nine");
     }
 
+    /**
+     * Метод переводит числа в строки из заданного диапазона. Если число кратно одному или нескольким числам из списка excludedDigits,
+     * то числовое представление заменяется на конкатенацию строковых представлений кратных чисел
+     * @param from начальное значение диапазона
+     * @param to конечное значение диапазона
+     * @param excludedDigits набор чисел для проверки на кратность. Ограничение: 1-9
+     * @return возвращает список строковых представлений
+     */
     public static List<String> stringifyRange(Integer from, Integer to, List<Integer> excludedDigits) {
         List<String> result = IntStream.range(from, to)
                 .mapToObj(number ->  {
