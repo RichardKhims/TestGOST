@@ -2,7 +2,17 @@ package utils;
 
 import java.util.stream.IntStream;
 
+/**
+ * Класс для работы с факториалами
+ * @author Хисметов Радик
+ */
 public class FactorialUtils {
+    /**
+     * Метод для подсчета факториала значения
+     * @param num значение
+     * @return возвращает факториал значения
+     * @throws Exception
+     */
     public static int calcFactorial(int num) throws Exception {
         if (num < 0) {
             throw new Exception("Non positive value");
@@ -15,12 +25,22 @@ public class FactorialUtils {
         return IntStream.range(2, num + 1).reduce(1, (res, value) -> res * value);
     }
 
+    /**
+     * Метод для расчета формулы m!/(r! * (m-r)!)
+     * @param m
+     * @param r
+     * @return возвращает значение, расчитанное по формуле
+     * @throws Exception
+     */
     public static double calcF(int m, int r) throws Exception {
         int a = Integer.min(m - r, r);
         int b = Integer.max(m - r, r);
 
+        //подсчет факториала для минимального значения из 3-х
         int aFactorial = calcFactorial(a);
+        //подсчет факториала следующего значения, домножив первый найденный факториал на недостоющие значения
         int bFactorial = IntStream.range(a + 1, b + 1).reduce(aFactorial, (res, value) -> res * value);
+        //подсчет факториала следующего значения, домножив первый найденный факториал на недостоющие значения
         int mFactorial = IntStream.range(b + 1, m + 1).reduce(bFactorial, (res, value) -> res * value);
 
         return mFactorial / (aFactorial * bFactorial);

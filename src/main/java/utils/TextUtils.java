@@ -7,7 +7,17 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Класс для работы с текстом
+ * @author Хисметов Радик
+ */
 public class TextUtils {
+    /**
+     * Метод подсчитывает число вхождений каждого фрагмента из заданного текста, разбитого на фрагменты с помощью delimeter
+     * @param text исходный текст
+     * @param delimiter разделитель (может быть reg exp)
+     * @return возвращает упорядоченный словарь по убыванию числа вхождений каждого фрагмента
+     */
     public static Map<String, Long> getValuesByInnerCount(String text, String delimiter) {
         Map<String, Long> wordsMap = Stream.of(text.split(delimiter))
                 .map(String::toLowerCase).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
