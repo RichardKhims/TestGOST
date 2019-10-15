@@ -5,4 +5,4 @@ compile command: mvn compile
 
 build package:   mvn package
 
-run command:     java -jar <target>.jar
+run command:     java -jar [target].jar
