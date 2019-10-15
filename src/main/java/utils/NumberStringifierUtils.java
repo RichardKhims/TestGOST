@@ -39,6 +39,8 @@ public class NumberStringifierUtils {
     public static List<String> stringifyRange(Integer from, Integer to, List<Integer> excludedDigits) {
         List<String> result = IntStream.range(from, to)
                 .mapToObj(number ->  {
+                    //если из списка excludedDigits найдутся числа(число), которым кратно number,
+                    //то склеим их строковые представления
                     String s = excludedDigits.stream()
                             .filter(excludedDigit -> number % excludedDigit == 0)
                             .map(digitWordMap::get)
