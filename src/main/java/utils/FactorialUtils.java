@@ -14,7 +14,7 @@ public class FactorialUtils {
      * @return возвращает факториал значения
      * @throws Exception
      */
-    public static long calcFactorial(int num) throws Exception {
+    public static long calcFactorial(int num) {
         if (num < 0) {
             throw new IllegalArgumentException("Non positive value");
         }
@@ -33,7 +33,7 @@ public class FactorialUtils {
      * @return возвращает значение, расчитанное по формуле
      * @throws Exception
      */
-    public static long calcF(int m, int r) throws Exception {
+    public static long calcF(int m, int r) {
         int a = Integer.min(m - r, r);
         int b = Integer.max(m - r, r);
 
