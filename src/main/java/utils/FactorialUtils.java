@@ -28,8 +28,8 @@ public class FactorialUtils {
 
     /**
      * Метод для расчета формулы m!/(r! * (m-r)!)
-     * @param m
-     * @param r
+     * @param m значение m для расчета по формуле
+     * @param r значение r для расчета по формуле
      * @return возвращает значение, расчитанное по формуле
      * @throws Exception
      */
