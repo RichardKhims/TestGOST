@@ -16,7 +16,7 @@ public class FactorialUtils {
      */
     public static long calcFactorial(int num) throws Exception {
         if (num < 0) {
-            throw new Exception("Non positive value");
+            throw new IllegalArgumentException("Non positive value");
         }
 
         if (num < 2) {
