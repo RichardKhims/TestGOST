@@ -44,14 +44,11 @@ public class NumberStringifierUtils {
                 .mapToObj(number ->  {
                     //если из списка excludedDigits найдутся числа(число), которым кратно number,
                     //то склеим их строковые представления
-                    String s = excludedDigits.stream()
+                    String stringInsteadNumber = excludedDigits.stream()
                             .filter(excludedDigit -> number % excludedDigit == 0)
                             .map(digitWordMap::get)
                             .collect(Collectors.joining());
-                    if (StringUtils.isEmpty(s)) {
-                        return String.valueOf(number);
-                    }
-                    return s;
+                    return StringUtils.isEmpty(stringInsteadNumber) ? String.valueOf(number) : stringInsteadNumber;
                 }).collect(Collectors.toList());
 
         return result;
