@@ -1,5 +1,7 @@
 package utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,6 +21,10 @@ public class TextUtils {
      * @return возвращает упорядоченный словарь по убыванию числа вхождений каждого фрагмента
      */
     public static Map<String, Long> getValuesByInnerCount(String text, String delimiter) {
+        if (StringUtils.isEmpty(text) || StringUtils.isEmpty(delimiter)) {
+            throw new IllegalArgumentException("Invalid parameters");
+        }
+
         Map<String, Long> wordsMap = Stream.of(text.split(delimiter))
                 .map(String::toLowerCase).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 

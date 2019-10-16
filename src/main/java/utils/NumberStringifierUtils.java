@@ -2,7 +2,6 @@ package utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +35,11 @@ public class NumberStringifierUtils {
      * @param excludedDigits набор чисел для проверки на кратность. Ограничение: 1-9
      * @return возвращает список строковых представлений
      */
-    public static List<String> stringifyRange(Integer from, Integer to, List<Integer> excludedDigits) {
+    public static List<String> stringifyRange(int from, int to, List<Integer> excludedDigits) {
+        if (to == 0 || from == 0 || to < from) {
+            throw new IllegalArgumentException("Invalid parameters");
+        }
+
         List<String> result = IntStream.range(from, to)
                 .mapToObj(number ->  {
                     //если из списка excludedDigits найдутся числа(число), которым кратно number,
