@@ -41,7 +41,7 @@ public class FactorialUtils {
         long aFactorial = calcFactorial(a);
         //подсчет факториала следующего значения, домножив первый найденный факториал на недостоющие значения
         long bFactorial = LongStream.range(a + 1, b + 1).reduce(aFactorial, (res, value) -> res * value);
-        //подсчет факториала следующего значения, домножив первый найденный факториал на недостоющие значения
+        //подсчет факториала следующего значения, домножив предыдущий факториал на недостоющие значения
         long mFactorial = LongStream.range(b + 1, m + 1).reduce(bFactorial, (res, value) -> res * value);
 
         return mFactorial / (aFactorial * bFactorial);
